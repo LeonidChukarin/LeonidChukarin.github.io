@@ -14,6 +14,31 @@ document.getElementById('toggleInstructionButton').addEventListener('click', fun
     }
 });
 
+// Логика для свайпа
+let touchStartX = 0;
+
+document.getElementById('instructionPanel').addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+});
+
+document.getElementById('instructionPanel').addEventListener('touchmove', function(e) {
+    const touchEndX = e.touches[0].clientX;
+    const distance = touchStartX - touchEndX;
+
+    // Если пользователь свайпнул влево (больше 50 пикселей)
+    if (distance > 50) {
+        hideInstruction();
+    }
+});
+
+// Функция для скрытия инструкции
+function hideInstruction() {
+    const instructionPanel = document.getElementById('instructionPanel');
+    instructionPanel.classList.remove('visible');
+    instructionPanel.classList.add('hidden');
+    document.getElementById('toggleInstructionButton').textContent = 'Показать инструкцию'; // Меняем текст кнопки
+}
+
 // Исходный код для игры:
 
 const canvas = document.getElementById('circleCanvas');
