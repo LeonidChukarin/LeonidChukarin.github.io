@@ -54,7 +54,7 @@ let userStartPoint = null;
 let userRadius = 0;
 const snapRadius = 20; // Увеличено до 20 пикселей
 
-// Для мобильных устройств
+// Для мобильных устройств: получение точных координат касания
 function getTouchPos(canvasDom, touchEvent) {
     const rect = canvasDom.getBoundingClientRect();
     return {
