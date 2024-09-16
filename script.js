@@ -52,7 +52,7 @@ let drawnPoints = [];
 let idealCircleRadius = 0;
 let userStartPoint = null;
 let userRadius = 0;
-const snapRadius = 10;
+const snapRadius = 20; // Увеличено до 20 пикселей
 
 // Для мобильных устройств
 function getTouchPos(canvasDom, touchEvent) {
