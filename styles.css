@@ -1,7 +1,7 @@
 /* Общие стили для всего сайта */
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Нежный градиент */
+    background: linear-gradient(135deg, #d0e1f9, #4d79ff); /* Градиент синего */
     margin: 0;
     padding: 0;
     display: flex;
@@ -26,8 +26,8 @@ body {
 
 /* Заголовок игры */
 h1 {
-    font-size: 2rem; /* Уменьшено для мобильных */
-    color: #333;
+    font-size: 2rem;
+    color: #0047ab; /* Темно-синий */
     margin-bottom: 20px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -35,11 +35,11 @@ h1 {
 
 /* Стиль для холста */
 canvas {
-    border: 2px solid #6a5acd;
+    border: 2px solid #4d79ff;
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    max-width: 100%; /* Масштабируется на мобильных */
+    max-width: 100%;
     height: auto;
     transition: transform 0.3s ease;
 }
@@ -50,19 +50,19 @@ canvas:active {
 
 /* Стиль для текста с точностью */
 #score {
-    font-size: 1.2rem; /* Уменьшено для мобильных */
+    font-size: 1.2rem;
     margin-top: 15px;
-    color: #555;
+    color: #0056d2; /* Ярко-синий */
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 /* Стиль для кнопок */
 button {
-    background-color: #6a5acd;
+    background-color: #4d79ff;
     color: white;
     border: none;
-    padding: 12px 20px; /* Уменьшено для мобильных */
+    padding: 12px 20px;
     font-size: 1rem;
     cursor: pointer;
     border-radius: 10px;
@@ -72,15 +72,15 @@ button {
 }
 
 button:hover {
-    background-color: #836fff;
+    background-color: #728fff;
     transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(106, 90, 205, 0.2);
+    box-shadow: 0 8px 15px rgba(77, 121, 255, 0.2);
 }
 
 button:active {
-    background-color: #483d8b;
+    background-color: #003c8f;
     transform: translateY(1px);
-    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.2);
+    box-shadow: 0 4px 10px rgba(77, 121, 255, 0.2);
 }
 
 /* Стиль для инструкции */
@@ -89,8 +89,8 @@ button:active {
     left: -350px;
     top: 50%;
     transform: translateY(-50%);
-    width: 90vw; /* Сделано для мобильных */
-    max-width: 300px; /* Максимальная ширина */
+    width: 90vw;
+    max-width: 300px;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 20px;
@@ -105,7 +105,7 @@ button:active {
 
 .instructions h2 {
     font-size: 1.5rem;
-    color: #6a5acd;
+    color: #4d79ff; /* Синий */
     margin-bottom: 15px;
 }
 
@@ -129,7 +129,7 @@ button:active {
 }
 
 .high-accuracy {
-    color: #2ed573;
+    color: #4d79ff;
 }
 
 /* Медиа-запросы для мобильных устройств */

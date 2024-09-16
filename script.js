@@ -138,7 +138,7 @@ canvas.addEventListener('mousemove', (e) => {
     for (let i = 1; i < drawnPoints.length; i++) {
         ctx.lineTo(drawnPoints[i].x, drawnPoints[i].y);
     }
-    ctx.strokeStyle = '#6a5acd';
+    ctx.strokeStyle = '#4d79ff';
     ctx.lineWidth = 2;
     ctx.stroke();
 });
@@ -174,7 +174,7 @@ canvas.addEventListener('touchmove', (e) => {
     for (let i = 1; i < drawnPoints.length; i++) {
         ctx.lineTo(drawnPoints[i].x, drawnPoints[i].y);
     }
-    ctx.strokeStyle = '#6a5acd';
+    ctx.strokeStyle = '#4d79ff';
     ctx.lineWidth = 2;
     ctx.stroke();
 });
@@ -230,7 +230,7 @@ function fillUserCircle() {
         ctx.lineTo(drawnPoints[i].x, drawnPoints[i].y);
     }
     ctx.closePath();
-    ctx.fillStyle = 'rgba(106, 90, 205, 0.3)';
+    ctx.fillStyle = 'rgba(77, 121, 255, 0.3)';
     ctx.fill();
 }
 
@@ -238,10 +238,10 @@ function fillUserCircle() {
 function drawIdealCircle() {
     ctx.beginPath();
     ctx.arc(centerX, centerY, idealCircleRadius, 0, Math.PI * 2);
-    ctx.strokeStyle = '#ff6b6b';
+    ctx.strokeStyle = '#003c8f';
     ctx.lineWidth = 3;
     ctx.stroke();
-    ctx.fillStyle = 'rgba(255, 107, 107, 0.1)';
+    ctx.fillStyle = 'rgba(77, 121, 255, 0.1)';
     ctx.fill();
 }
 
