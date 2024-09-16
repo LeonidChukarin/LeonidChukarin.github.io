@@ -9,7 +9,6 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    position: relative;
 }
 
 /* Контейнер для всей игры */
@@ -19,7 +18,7 @@ body {
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    max-width: 95vw; /* Уменьшено для мобильных устройств */
     width: 100%;
     z-index: 1;
     transition: all 0.3s ease;
@@ -27,7 +26,7 @@ body {
 
 /* Заголовок игры */
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Уменьшено для мобильных */
     color: #333;
     margin-bottom: 20px;
     font-weight: 700;
@@ -40,9 +39,9 @@ canvas {
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    max-width: 100%;
+    max-width: 100%; /* Масштабируется на мобильных */
     height: auto;
-    transition: transform 0.3s ease; /* Анимация для масштабирования */
+    transition: transform 0.3s ease;
 }
 
 canvas:active {
@@ -51,7 +50,7 @@ canvas:active {
 
 /* Стиль для текста с точностью */
 #score {
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Уменьшено для мобильных */
     margin-top: 15px;
     color: #555;
     font-weight: 500;
@@ -63,8 +62,8 @@ button {
     background-color: #6a5acd;
     color: white;
     border: none;
-    padding: 12px 30px;
-    font-size: 1.1rem;
+    padding: 12px 20px; /* Уменьшено для мобильных */
+    font-size: 1rem;
     cursor: pointer;
     border-radius: 10px;
     margin: 10px 0;
@@ -90,7 +89,8 @@ button:active {
     left: -350px;
     top: 50%;
     transform: translateY(-50%);
-    width: 300px;
+    width: 90vw; /* Сделано для мобильных */
+    max-width: 300px; /* Максимальная ширина */
     padding: 20px;
     background-color: #ffffff;
     border-radius: 20px;
@@ -104,14 +104,14 @@ button:active {
 }
 
 .instructions h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: #6a5acd;
     margin-bottom: 15px;
 }
 
 /* Когда инструкция показана */
 .visible {
-    left: 20px; /* Инструкция выезжает на 20 пикселей от края экрана */
+    left: 20px;
 }
 
 /* Когда инструкция скрыта */
@@ -130,4 +130,29 @@ button:active {
 
 .high-accuracy {
     color: #2ed573;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media only screen and (max-width: 768px) {
+    .game-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    #score {
+        font-size: 1.1rem;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    canvas {
+        width: 90vw;
+        height: auto;
+    }
 }
