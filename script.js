@@ -29,6 +29,15 @@ let userStartPoint = null;
 let userRadius = 0;
 const snapRadius = 10;
 
+// Для мобильных устройств
+function getTouchPos(canvasDom, touchEvent) {
+    const rect = canvasDom.getBoundingClientRect();
+    return {
+        x: touchEvent.touches[0].clientX - rect.left,
+        y: touchEvent.touches[0].clientY - rect.top
+    };
+}
+
 // Нарисовать центральную точку
 function drawCenterPoint() {
     ctx.beginPath();
@@ -78,7 +87,7 @@ function calculateFillPercentage() {
     return fillPercentage - penaltyPercentage;
 }
 
-// Начало рисования
+// Начало рисования (мышь)
 canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
     userStartPoint = { x: e.offsetX, y: e.offsetY };
@@ -109,8 +118,50 @@ canvas.addEventListener('mousemove', (e) => {
     ctx.stroke();
 });
 
-// Завершение рисования круга
+// Завершение рисования круга (мышь)
 canvas.addEventListener('mouseup', () => {
+    finishDrawing();
+});
+
+// Для сенсорных экранов (начало рисования)
+canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault(); // Предотвращаем нежелательные действия (например, прокрутку страницы)
+    const touchPos = getTouchPos(canvas, e);
+    isDrawing = true;
+    userStartPoint = { x: touchPos.x, y: touchPos.y };
+    drawnPoints = [userStartPoint];
+});
+
+// Для сенсорных экранов (рисование)
+canvas.addEventListener('touchmove', (e) => {
+    if (!isDrawing) return;
+    const touchPos = getTouchPos(canvas, e);
+    drawnPoints.push({ x: touchPos.x, y: touchPos.y });
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Рисуем центральную точку
+    drawCenterPoint();
+
+    // Рисуем круг пользователя
+    ctx.beginPath();
+    ctx.moveTo(drawnPoints[0].x, drawnPoints[0].y);
+    for (let i = 1; i < drawnPoints.length; i++) {
+        ctx.lineTo(drawnPoints[i].x, drawnPoints[i].y);
+    }
+    ctx.strokeStyle = '#6a5acd';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+});
+
+// Завершение рисования круга (сенсорные устройства)
+canvas.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    finishDrawing();
+});
+
+// Завершение рисования круга (общая функция для сенсорных и мышиных событий)
+function finishDrawing() {
     isDrawing = false;
 
     const lastPoint = drawnPoints[drawnPoints.length - 1];
@@ -132,7 +183,7 @@ canvas.addEventListener('mouseup', () => {
 
     const accuracy = calculateFillPercentage();
     updateScoreDisplay(accuracy);
-});
+}
 
 // Функция очистки холста
 function clearCanvas() {
