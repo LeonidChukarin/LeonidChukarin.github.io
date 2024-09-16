@@ -1,0 +1,133 @@
+/* Общие стили для всего сайта */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Нежный градиент */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Контейнер для всей игры */
+.game-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+/* Заголовок игры */
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Стиль для холста */
+canvas {
+    border: 2px solid #6a5acd;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Анимация для масштабирования */
+}
+
+canvas:active {
+    transform: scale(0.98); /* Эффект нажатия */
+}
+
+/* Стиль для текста с точностью */
+#score {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Стиль для кнопок */
+button {
+    background-color: #6a5acd;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+button:hover {
+    background-color: #836fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(106, 90, 205, 0.2);
+}
+
+button:active {
+    background-color: #483d8b;
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.2);
+}
+
+/* Стиль для инструкции */
+.instructions {
+    position: absolute;
+    left: -350px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    transition: left 0.5s ease-out;
+    z-index: 2;
+}
+
+.instructions h2 {
+    font-size: 1.6rem;
+    color: #6a5acd;
+    margin-bottom: 15px;
+}
+
+/* Когда инструкция показана */
+.visible {
+    left: 20px; /* Инструкция выезжает на 20 пикселей от края экрана */
+}
+
+/* Когда инструкция скрыта */
+.hidden {
+    left: -350px;
+}
+
+/* Цвета для точности */
+.low-accuracy {
+    color: #ff6b6b;
+}
+
+.medium-accuracy {
+    color: #ffa502;
+}
+
+.high-accuracy {
+    color: #2ed573;
+}

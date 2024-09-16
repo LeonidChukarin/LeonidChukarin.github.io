@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw a Circle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Draw a Perfect Circle</h1>
+        <canvas id="circleCanvas" width="400" height="400"></canvas>
+        <p id="score">Your accuracy: 0%</p>
+        <button id="clearCanvasButton">Clear Canvas</button>
+        <button id="toggleInstructionButton">Показать инструкцию</button>
+    </div>
+
+    <div id="instructionPanel" class="instructions hidden">
+        <h2>Инструкция</h2>
+        <p>1. Начни рисование круга, нажав на холст и удерживая кнопку мыши.</p>
+        <p>2. Веди мышь, стараясь нарисовать круг, вернувшись к начальной точке.</p>
+        <p>3. Круг будет считаться завершённым, если ты приблизишься к начальной точке на расстояние 10 пикселей или меньше.</p>
+        <p>4. Твоя точность будет рассчитываться на основе того, насколько круг совпадает с идеальной окружностью.</p>
+        <p>5. Если ты выйдешь за пределы идеального круга, проценты будут уменьшены.</p>
+        <p>6. Нажми кнопку «Clear Canvas», чтобы начать снова!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
